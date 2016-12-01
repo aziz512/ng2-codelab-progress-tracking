@@ -1,0 +1,29 @@
+<!--<div>
+  <div *ngFor="let test of testStats" class="test-block">
+    <div class="title">{{test.title}}</div>
+    <p class="pass-fail-container">
+      <span class="passed">{{test.passed}}</span>
+      |
+      <span class="failed">{{test.failed}}</span>
+    </p>
+    <p>M: {{test.milestone}} E: {{test.exercise}}</p>
+  </div>
+</div>-->
+
+
+<table border="1">
+  <tr  *ngIf="users.length > 0">
+    <td></td>
+    <td *ngFor="let milestone of users[0].milestones">
+      {{milestone.id}}
+    </td>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{user.uid}}</td>
+    <td *ngFor="let milestone of user.milestones">
+      <span *ngFor="let test of milestone.tests">
+        1
+      </span>
+    </td>
+  </tr>
+</table>
