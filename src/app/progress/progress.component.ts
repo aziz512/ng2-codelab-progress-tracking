@@ -23,7 +23,7 @@ export class ProgressComponent implements OnInit {
         this.progress.forEach((user) => {
           let userObject = { uid: user.$key, milestones: [] };
 
-          user.milestones.forEach((milestone, milestoneIndex) => {
+          user.codelab.milestones.forEach((milestone, milestoneIndex) => {
             userObject.milestones.push({ tests: [], id: milestoneIndex + 1 });
             milestone.exercises.forEach((exercise, exerciseIndex) => {
               if (exercise.tests) {
@@ -33,6 +33,7 @@ export class ProgressComponent implements OnInit {
               }
             })
           })
+          console.log(userObject);
           this.users.push(userObject);
         });
       });

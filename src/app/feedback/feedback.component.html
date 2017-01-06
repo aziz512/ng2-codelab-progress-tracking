@@ -1,3 +1,30 @@
-<p>
-  feedback works!
-</p>
+<div>
+  Filter by date:
+  <select>
+    <option *ngFor="let date of dates" value="{{date}}" (click)="filterByDate(date)">{{date}}</option>
+  </select>
+</div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Comment</th>
+    <th>Milestone #</th>
+    <th>Exercise #</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let feedbackItem of currentFeedbackList">
+    <td>{{feedbackItem.name}}</td>
+    <td>{{feedbackItem.comment}}</td>
+    <td>{{feedbackItem.state.codelab.selectedMilestoneIndex + 1}}</td>
+    <td>{{feedbackItem.state.codelab.milestones[feedbackItem.state.codelab.selectedMilestoneIndex].selectedExerciseIndex + 1}}</td>
+    <td>
+      <button (click)="simulateFeedback(feedbackItem.$key)">Simulate</button>
+    </td>
+  </tr>
+</table>
+
+<ul>
+  <!--<li *ngFor="let feedbacker of listOfFeedbackers">
+    <b>{{feedbacker.name}}</b> Number Of feedback: {{feedbacker.numberOfFeedback}}
+  </li>-->
+</ul>
